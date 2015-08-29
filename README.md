@@ -1,1 +1,1 @@
-place grun and ggen to `/usr/local/bin/grun`
+place utils to `/usr/local/bin/`
