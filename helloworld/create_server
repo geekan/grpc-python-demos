@@ -1,0 +1,18 @@
+#!/bin/bash
+
+test -e "$1" || exit
+proto=$1
+
+proto_name=$(echo $proto | sed -e 's/\.proto$//g')
+echo "proto_name: $proto_name"
+
+service=$(grep service $proto | awk '{print $2}')
+server_filename="$(echo $service | tr '[:upper:]' '[:lower:]'})_server.py"
+echo "service: $service"
+echo "server_filename: $server_filename"
+
+cp ../utils/xxx_server.py ./$server_filename
+sed -i "s/XXX/$service/g" $server_filename
+
+cp ../utils/client.py ./client.py
+sed -i "s/XXX/$service/g" client.py

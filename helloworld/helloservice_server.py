@@ -7,7 +7,7 @@ import helloworld_pb2
 _ONE_DAY_IN_SECONDS = 60 * 60 * 24
 
 
-class Greeter(helloworld_pb2.EarlyAdopterGreeterServicer):
+class HelloService(helloworld_pb2.EarlyAdopterHelloServiceServicer):
 
     def SayHello(self, request, context):
         print("request: " + str(request)) 
@@ -15,8 +15,8 @@ class Greeter(helloworld_pb2.EarlyAdopterGreeterServicer):
 
 
 def serve():
-    server = helloworld_pb2.early_adopter_create_Greeter_server(
-            Greeter(), 50051, None, None)
+    server = helloworld_pb2.early_adopter_create_HelloService_server(
+            HelloService(), 50051, None, None)
     server.start()
     try:
         while True:
