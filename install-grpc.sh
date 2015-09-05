@@ -10,6 +10,7 @@ cd protobuf
 make
 make check
 make install
+sudo ldconfig
 
 cd python
 python setup.py build
