@@ -13,8 +13,8 @@ echo "service: $service"
 echo "server_filename: $server_filename"
 echo "client_filename: $client_filename"
 
-cp ../utils/xxx_server.py ./$server_filename
+cp ../utils/template_server.py ./$server_filename
 sed -i "s/XXX/$service/g" $server_filename
 
-cp ../utils/client.py ./$client_filename
+cp ../utils/template_client.py ./$client_filename
 sed -i "s/XXX/$service/g" $client_filename
