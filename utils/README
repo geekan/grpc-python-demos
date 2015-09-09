@@ -1,10 +1,7 @@
 create_server: create_server *.proto to create a template server file
 
-ggen: use in makefile ( make install )
+ggen: use in makefile (make install)
 
 grun: grun *server.py
 
 makefile: make install first to ensure all utils are installed.
-
-xxx_server.py
-client.py
