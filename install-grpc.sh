@@ -3,13 +3,15 @@ echo "INFO: python 2.6+ and pip should be installed first."
 echo "INFO: this script has been tested on ubuntu."
 
 # install protobuf
+apt-get install unzip
+apt-get install automake
 git clone https://github.com/google/protobuf
 cd protobuf
-./autogen.sh
-./configure
-make
-make check
-make install
+./autogen.sh &&
+./configure &&
+make &&
+make check &&
+make install &&
 sudo ldconfig
 
 cd python
@@ -28,8 +30,8 @@ cd ../../
 # install grpc itself
 git clone https://github.com/grpc/grpc
 cd grpc
-git submodule update --init
-make 
+git submodule update --init &&
+make &&
 make install
 
 apt-get install build-essential autoconf libtool
