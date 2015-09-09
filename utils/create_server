@@ -8,11 +8,13 @@ echo "proto_name: $proto_name"
 
 service=$(grep service $proto | awk '{print $2}')
 server_filename="$(echo $service | tr '[:upper:]' '[:lower:]'})_server.py"
+client_filename="$(echo $service | tr '[:upper:]' '[:lower:]'})_client.py"
 echo "service: $service"
 echo "server_filename: $server_filename"
+echo "client_filename: $client_filename"
 
 cp ../utils/xxx_server.py ./$server_filename
 sed -i "s/XXX/$service/g" $server_filename
 
-cp ../utils/client.py ./client.py
-sed -i "s/XXX/$service/g" client.py
+cp ../utils/client.py ./$client_filename
+sed -i "s/XXX/$service/g" $client_filename
