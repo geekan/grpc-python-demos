@@ -1,0 +1,21 @@
+
+syntax = "proto3";
+
+// option java_package = "io.grpc.examples";
+// option objc_class_prefix = "HLW";
+
+package crawler;
+
+service Crawler {
+    rpc GetByURI (GetByURIRequest) returns (GetByURIReply) {}
+}
+
+message GetByURIRequest {
+    string uri = 1;
+    int32 timeout = 2;
+}
+
+message GetByURIReply {
+    string html = 1;
+    fixed32 status = 2;
+}
